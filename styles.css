@@ -1,0 +1,346 @@
+@import url('./images/holberton_school-icon/style.css');
+
+/* #region ROOT */
+:root {
+  --color-purple: #c271ff;
+  --color-black: #071629;
+  --font-family: 'Source Sans Pro', serif;
+  --spinny-font: 'Spin Cycle OT', var(--font-family);
+}
+
+
+button:hover,
+button:active {
+  opacity: 0.9;
+}
+
+/* #endregion */
+
+/* #region HEADER */
+#homepage-head {
+  background-color: var(--color-black);
+  background-image: url('./images/pic_1.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+#pricing-hero {
+  background-color: var(--color-black);
+  background-image: url('./images/pic_2.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: #fff;
+}
+
+#courses-hero {
+  background-color: var(--color-black);
+  background-image: url('./images/pic_3.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+#spincycle {
+  font-family: var(--spinny-font);
+  font-size: 2rem;
+}
+
+#results {
+  background-color: #fff;
+}
+
+.profile-sm {
+  height: 150px;
+  width: 150px;
+}
+
+@media (max-width: 767px) {
+  header {
+    background-size: 62em;
+  }
+}
+
+h1 {
+  font-size: 56px; /* should be 61? */
+}
+
+.purple-text {
+  color: var(--color-purple);
+}
+
+.btn,
+.btn:hover,
+.btn:focus {
+  opacity: 0.9;
+  background-color: var(--color-purple);
+  border-color: var(--color-purple);
+  font-size: 14px;
+}
+
+.navbar-toggler {
+  border: none;
+  float: left;
+  position: absolute;
+  top: 38px;
+}
+
+.space-lg {
+  height: 150px;
+}
+
+/* #endregion */
+
+/* #region CAROUSEL */
+
+.bg-purple {
+  background-color: var(--color-purple);
+}
+
+.profile-md {
+  height: 160px;
+  width: 160px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: inline-block;
+  width: 29px;
+  height: 62px;
+  background: no-repeat 50%/100% 100%;
+}
+
+.carousel-control-prev-icon.white {
+  background-image: url('./images/arrow_white_left.png');
+}
+
+.carousel-control-next-icon.white {
+  background-image: url('./images/arrow_white_right.png');
+}
+
+.carousel-control-prev-icon.black {
+  background-image: url('./images/arrow_black_left.png');
+}
+
+.carousel-control-next-icon.black {
+  background-image: url('./images/arrow_black_right.png');
+}
+
+/* #endregion */
+
+/* #region POPULAR VIDEOS */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Show 4th slide on md if col-md-4*/
+  #popular
+    .carousel-inner
+    .active.col-md-4.carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -33.3333%; /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  /* Show 3rd slide on sm if col-sm-6*/
+  #popular
+    .carousel-inner
+    .active.col-sm-6.carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -50%; /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+}
+@media (min-width: 576px) {
+  #popular .carousel-item {
+    margin-right: 0;
+  }
+  /* show 2 items */
+  #popular .carousel-inner .active + .carousel-item {
+    display: block;
+  }
+  #popular
+    .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  #popular
+    .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item {
+    transition: none;
+  }
+  #popular .carousel-inner .carousel-item-next {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+  /* left or forward direction */
+  #popular .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  #popular .carousel-item-next.carousel-item-left + .carousel-item,
+  #popular
+    .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  /* farthest right hidden item must be also positioned for animations */
+  #popular .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+  /* right or prev direction */
+  #popular
+    .active.carousel-item-right
+    + .carousel-item-prev.carousel-item-right,
+  #popular .carousel-item-prev.carousel-item-right + .carousel-item,
+  #popular
+    .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+/* MD */
+@media (min-width: 768px) {
+  /* show 3rd of 3 item slide */
+  #popular .carousel-inner .active + .carousel-item + .carousel-item {
+    display: block;
+  }
+  #popular
+    .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item
+    + .carousel-item {
+    transition: none;
+  }
+  #popular .carousel-inner .carousel-item-next {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+  /* left or forward direction */
+  #popular
+    .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  /* right or prev direction */
+  #popular
+    .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+/* LG */
+@media (min-width: 991px) {
+  /* show 4th item */
+  #popular
+    .carousel-inner
+    .active
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    display: block;
+  }
+  #popular
+    .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    transition: none;
+  }
+  /* Show 5th slide on lg if col-lg-3 */
+  #popular
+    .carousel-inner
+    .active.col-lg-3.carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%; /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+  /* left or forward direction */
+  #popular
+    .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  /* right or prev direction //t - previous slide direction last item animation fix */
+  #popular
+    .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+/* #endregion */
+
+/* #region FREE MEMBERSHIP */
+
+.membership {
+  background-color: var(--color-black);
+}
+
+/* #endregion */
+
+/*  #region LATEST VIDEOS */
+/* #endregion */
+
+/*  #region FOOTER */
+
+footer {
+  background: var(--color-black);
+}
+
+/* #endregion */
+
+/* #region PRICING */
+
+/* #pricing {
+  background-color: var(--color-black);
+} */
+
+/* #endregion */
