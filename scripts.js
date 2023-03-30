@@ -28,25 +28,26 @@ $(document).ready(function () {
   $.ajax({
     url: 'https://smileschool-api.hbtn.info/popular-tutorials',
     method: 'GET',
-    success: data => {
+    success: (data) => {
       // show data in console
       console.log(data);
       // add HTML elements to body
-      data.forEach(item => {
+      data.forEach((item) => {
         $(`#tutorials`).append(`
           <div id="tutorial-${item.id}" class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card border-0">
               <img
-                src="./images/thumbnail_3.jpg"
-                class="bg-img card-img-top"
+                src="${item.thumb_url}"
+                class="bg-img card-img-top img-fluid"
                 alt="thumbnail"
               />
+              <img class="card-img-overlay w-50 ml-5 mt-3" src="./images/play.png">
               <div class="card-body">
                 <h5>${item.title}</h5>
                 <p>${item['sub-title']}</p>
                 <div class="row">
                   <img
-                    src="${item['author_pic_url']}"
+                    src="${item.author_pic_url}"
                     alt="tiny profile"
                     style="height: 20px"
                     class="mx-3 rounded-circle"
@@ -76,6 +77,6 @@ $(document).ready(function () {
     error: () => {
       // handle fetching error
       console.log('Error fetching tutorials');
-    }
+    },
   });
 });
