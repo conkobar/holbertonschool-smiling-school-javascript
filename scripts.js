@@ -1,6 +1,13 @@
 // execute when the DOM has fully loaded
 $(document).ready(function () {
-  // fetch quotes from API
+  // displays quotes
+  getQuotes();
+  // display tutorials
+  getTutorials();
+});
+
+// fetch quotes from API
+const getQuotes = () => {
   $.ajax({
     url: 'https://smileschool-api.hbtn.info/quotes',
     method: 'GET',
@@ -23,8 +30,10 @@ $(document).ready(function () {
       console.log('Error fetching quotes');
     },
   });
+};
 
-  // fetch popular tutorials from API
+// fetch popular tutorials from API
+const getTutorials = () => {
   $.ajax({
     url: 'https://smileschool-api.hbtn.info/popular-tutorials',
     method: 'GET',
@@ -34,7 +43,9 @@ $(document).ready(function () {
       // add HTML elements to body
       data.forEach((item) => {
         $(`#tutorials`).append(`
-          <div id="tutorial-${item.id}" class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+          <div id="tutorial-${
+            item.id
+          }" class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card border-0">
               <img
                 src="${item.thumb_url}"
@@ -56,11 +67,21 @@ $(document).ready(function () {
                 </div>
                 <!-- stars -->
                 <div class="row mx-0">
-                  <img src="./images/star_on.png" height="15px" width="15px" />
-                  <img src="./images/star_on.png" height="15px" width="15px" />
-                  <img src="./images/star_on.png" height="15px" width="15px" />
-                  <img src="./images/star_on.png" height="15px" width="15px" />
-                  <img src="./images/star_off.png" height="15px" width="15px" />
+                  <img src="./images/star_${
+                    item.star >= 1 ? 'on' : 'off'
+                  }.png" height="15px" width="15px" />
+                  <img src="./images/star_${
+                    item.star >= 2 ? 'on' : 'off'
+                  }.png" height="15px" width="15px" />
+                  <img src="./images/star_${
+                    item.star >= 3 ? 'on' : 'off'
+                  }.png" height="15px" width="15px" />
+                  <img src="./images/star_${
+                    item.star >= 4 ? 'on' : 'off'
+                  }.png" height="15px" width="15px" />
+                  <img src="./images/star_${
+                    item.star >= 5 ? 'on' : 'off'
+                  }.png" height="15px" width="15px" />
                   <h6 class="purple-text ml-auto">${item.duration}</h6>
                 </div>
               </div>
@@ -79,4 +100,4 @@ $(document).ready(function () {
       console.log('Error fetching tutorials');
     },
   });
-});
+};
