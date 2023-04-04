@@ -37,9 +37,11 @@
       crossorigin="anonymous"
     />
 
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
     <script src="scripts.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="">
     <!-- HEADER -->
@@ -94,10 +96,10 @@
       </nav>
       <div class="space-lg"></div>
       <h1 class="font-weight-bold">Get schooled</h1>
-      <div class="row m-5">
-        <div class="col">SMILES</div>
-        <div class="col">GRIN</div>
-        <div class="col">LAUGH</div>
+      <div class="d-flex m-5 justify-content-center">
+        <p class="px-4">SMILES</p>
+        <p class="px-4">GRIN</p>
+        <p class="px-4">LAUGH</p>
       </div>
       <button type="button" class="mb-5 btn rounded-pill p-2 px-3 text-white">
         REGISTER FOR FREE
@@ -149,9 +151,10 @@
 
     <div class="container-fluid bg-purple">
       <div class="container-lg">
+        <div class="loader" id="testimonialLoader"></div>
         <div
           id="quotes"
-          class="carousel slide bg-purple text-white"
+          class="carousel slide bg-purple text-white d-none"
           data-ride="carousel"
         >
           <div class="carousel-inner mx-auto col-sm-10 col-md-8 py-5">
@@ -161,15 +164,16 @@
                   src="./images/profile_5.jpg"
                   class="profile-md mr-3 my-5 rounded-circle align-self-center"
                   alt="profile pic"
+                  id="quotes-pic-1"
                 />
                 <div class="media-body align-self-center">
-                  <p class="mt-0">
-                    &#171; Those tutorials are concise and go straight to the
-                    point. I can't think of a better place to learn smiling. And
-                    it's so fun!
+                  <p id="quotes-text-1" class="mt-0">
+                    Those tutorials are concise and go straight to the point. I
+                    can't think of a better place to learn smiling. And it's so
+                    fun!
                   </p>
-                  <h6>Person Name</h6>
-                  <em class="mb-0">weather presenter</em>
+                  <h6 id="quotes-name-1">Person Name</h6>
+                  <em id="quotes-title-1" class="mb-0">weather presenter</em>
                 </div>
               </div>
             </div>
@@ -179,15 +183,16 @@
                   src="./images/profile_5.jpg"
                   class="profile-md mr-3 my-5 rounded-circle align-self-center"
                   alt="profile pic"
+                  id="quotes-pic-2"
                 />
                 <div class="media-body align-self-center">
-                  <p class="mt-0">
-                    &#171; Those tutorials are concise and go straight to the
-                    point. I can't think of a better place to learn smiling. And
-                    it's so fun!
+                  <p id="quotes-text-2" class="mt-0">
+                    Those tutorials are concise and go straight to the point. I
+                    can't think of a better place to learn smiling. And it's so
+                    fun!
                   </p>
-                  <h6>Person Name</h6>
-                  <em class="mb-0">weather presenter</em>
+                  <h6 id="quotes-name-2">Person Name</h6>
+                  <em id="quotes-title-2" class="mb-0">weather presenter</em>
                 </div>
               </div>
             </div>
@@ -219,149 +224,13 @@
     <h3 class="my-5 text-center">
       Most <span class="purple-text">popular</span> tutorials
     </h3>
-    <div id="popular" class="carousel slide" data-ride="carousel">
+    <div class="loader" id="tutorialLoader"></div>
+    <div id="popular" class="carousel slide d-none p-5" data-ride="carousel">
       <div
-        class="carousel-inner w-100 mx-auto col-sm-10 col-md-8 py-5"
+        class="carousel-inner container-fluid p-5"
         role="listbox"
-      >
-        <!-- <div class="carousel-inner mx-auto col-sm-10 col-md-8 py-5"> -->
-        <div class="carousel-item active col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-0">
-            <img
-              src="./images/thumbnail_3.jpg"
-              class="bg-img card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Diagonal Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-0">
-            <img
-              src="./images/thumbnail_4.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Diagonal Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-0">
-            <img
-              src="./images/thumbnail_1.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Sad Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-0">
-            <img
-              src="./images/thumbnail_2.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Happy Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        id="tutorials"
+      ></div>
       <a
         class="carousel-control-prev"
         href="#popular"
@@ -446,153 +315,15 @@
     <h3 class="my-5 text-center">
       <span class="purple-text">Latest</span> videos
     </h3>
-    <div id="latest" class="carousel slide" data-ride="carousel">
+    <div id="latest-videos" class="carousel slide d-none p-5" data-ride="carousel">
       <div
-        class="carousel-inner w-100 mx-auto col-sm-10 col-md-8 py-5"
+        class="carousel-inner container-fluid p-5"
         role="listbox"
-      >
-        <!-- <div class="carousel-inner mx-auto col-sm-10 col-md-8 py-5"> -->
-        <div class="carousel-item active col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <img
-              src="./images/thumbnail_3.jpg"
-              class="bg-img card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Diagonal Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <img
-              src="./images/thumbnail_4.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Sad Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <img
-              src="./images/thumbnail_1.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Natural Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <img
-              src="./images/thumbnail_2.jpg"
-              class="card-img-top"
-              alt="thumbnail"
-            />
-            <div class="card-body">
-              <h5>Happy Smile</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
-                eiusmod.
-              </p>
-              <div class="row">
-                <img
-                  src="./images/profile_1.jpg"
-                  alt="tiny profile"
-                  style="height: 20px"
-                  class="mx-3 rounded-circle"
-                />
-                <h6 class="purple-text">Phillip Massey</h6>
-              </div>
-              <!-- stars -->
-              <div class="row mx-0">
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_on.png" height="15px" width="15px" />
-                <img src="./images/star_off.png" height="15px" width="15px" />
-                <h6 class="purple-text ml-auto">8min</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+        id="blockbuster"
+      ></div>
       <a
         class="carousel-control-prev"
-        href="#latest"
+        href="#latest-videos"
         role="button"
         data-slide="prev"
       >
@@ -601,7 +332,7 @@
       </a>
       <a
         class="carousel-control-next"
-        href="#latest"
+        href="#latest-videos"
         role="button"
         data-slide="next"
       >
