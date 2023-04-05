@@ -91,7 +91,8 @@ h1 {
 
 /* #region CAROUSEL */
 
-.bg-purple {
+.bg-purple,
+.purple-bg {
   background-color: var(--color-purple);
 }
 
@@ -345,6 +346,8 @@ footer {
 
 /* #endregion */
 
+/* #region LOADERS */
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -363,3 +366,20 @@ footer {
   animation: spin 2s linear infinite;
   margin: auto;
 }
+
+/* #endregion */
+
+/* #region Pre-pre-LD */
+
+.dropdown-item a:hover {
+  color: #c271ff !important;
+}
+
+#sort-by:focus,
+#sort-by:hover,
+#topic:focus,
+#topic:hover {
+  background-color: #c271ff;
+}
+
+/* #endregion */

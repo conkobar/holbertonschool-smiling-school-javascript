@@ -6,6 +6,8 @@ $(document).ready(function () {
   getTutorials();
   // display latest videos
   getLatestVids();
+  // display course page videos
+  loadCourses();
 });
 
 // fetch quotes from API
@@ -174,3 +176,101 @@ const getLatestVids = () => {
     },
   });
 };
+
+// generates the video cards on the courses page
+const loadCourses = () => {
+  // courses
+  $.ajax({
+    url: 'https://smileschool-api.hbtn.info/courses',
+    type: 'GET',
+    success: function (response) {
+      const topics = response.topics;
+      const sorts = response.sorts;
+      const courses = response.courses;
+
+      // loop through topics
+      topics.forEach((topic) => {
+        // console.log(topic);
+        $('#topicDropDown').append(
+          `<li class="dropdown-item">
+						<a href="#" class="text-dark" style="text-decoration: none;">
+							${toStandardString(topic)}
+						</a>
+					</li>`
+        );
+      });
+
+      // loop through sorts
+      sorts.forEach((sort) => {
+        // console.log(topic);
+        $('#sorts').append(
+          `<li class="dropdown-item">
+						<a href="#" class="text-dark" style="text-decoration: none;">
+							${toStandardString(sort)}
+						</a>
+					</li>`
+        );
+      });
+
+      loadVideos(courses);
+    },
+    error: function (xhr) {
+      console.log(xhr.responseText);
+    },
+  });
+};
+
+// snake to standard string
+function toStandardString(snakeCaseString) {
+  let words = snakeCaseString.split('_');
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+  }
+  return words.join(' ');
+}
+
+// star rating function
+function stars(rating) {
+  let stars = '';
+  for (let i = 1; i <= 5; i++) {
+    if (i < rating) {
+      stars += `<img src="./images/star_on.png" height="15px" width="15px">`;
+    } else {
+      stars += `<img src="./images/star_off.png" height="15px" width="15px">`;
+    }
+  }
+  return stars;
+}
+
+// load videos function
+function loadVideos(courses) {
+  // loop through courses
+  courses.forEach((video) => {
+    // console.log(course);
+    $('#courseVideos').append(`
+      <div class="col-12 col-sm-4 col-md-3 my-3">
+				<div>
+					<img class="card-img-top" src="${video.thumb_url}" alt="">
+					<img class="card-img-overlay play mx-auto mt-1 p-0 w-50" src="images/play.png">
+				</div>
+				<div class="card-body">
+					<h1 class="card-title lead font-weight-bold text-dark">${video.title}</h1>
+					<p class="card-text text-secondary">${video['sub-title']}</p>
+					<div class="row">
+						<img class="rounded-circle ml-3" src="${
+              video['author_pic_url']
+            }" height="25px" width="25px"
+							alt="">
+						<p class="ml-3 purple">${video.author}</p>
+					</div>
+					<div class="row align-items-center justify-content-between px-4">
+						<div class="row">
+							${stars(video.star)}
+						</div>
+						<p class="purple ml-3 pt-3">${video.duration}</p>
+					</div>
+				</div>
+			</div>
+		`);
+  });
+}
