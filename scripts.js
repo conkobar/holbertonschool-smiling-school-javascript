@@ -184,48 +184,66 @@ const loadCourses = () => {
     url: 'https://smileschool-api.hbtn.info/courses',
     type: 'GET',
     success: function (response) {
-      const topics = response.topics;
-      const sorts = response.sorts;
-      const courses = response.courses;
-
       // loop through topics
-      topics.forEach((topic) => {
+      response.topics.forEach((topic) => {
         // console.log(topic);
         $('#topicDropDown').append(
           `<li class="dropdown-item">
-						<a href="#" class="text-dark" style="text-decoration: none;">
+						<a href="#" class="text-dark" style="text-decoration: none;" onclick="topicSelect(this)">
 							${toStandardString(topic)}
 						</a>
 					</li>`
         );
       });
-
       // loop through sorts
-      sorts.forEach((sort) => {
+      response.sorts.forEach((sort) => {
         // console.log(topic);
         $('#sorts').append(
           `<li class="dropdown-item">
-						<a href="#" class="text-dark" style="text-decoration: none;">
+						<a href="#" class="text-dark" style="text-decoration: none;" onclick="sortSelect(this)">
 							${toStandardString(sort)}
 						</a>
 					</li>`
         );
       });
+    },
+  });
+  //initial get course call
+  getCourses();
+  //add event listener to search bar
+  $('#search').change(function () {
+    getCourses();
+  });
+};
 
+// courses search bar and video loading
+function getCourses() {
+  $('#courseVideos').empty();
+  $('#courseVideos').append(`<div class="loader" id="tutorialLoader"></div>`);
+  $.ajax({
+    url: 'https://smileschool-api.hbtn.info/courses',
+    type: 'GET',
+    data: {
+      q: $('#search').val(),
+      topic: $('#topic').val(),
+      sort: $('#sort-by').val(),
+    },
+    success: function (response) {
+      const courses = response.courses;
+      // remove the loader to show the videos
+      $('#tutorialLoader').remove();
       loadVideos(courses);
     },
     error: function (xhr) {
       console.log(xhr.responseText);
     },
   });
-};
+}
 
 // snake to standard string
 function toStandardString(snakeCaseString) {
   let words = snakeCaseString.split('_');
-  for (let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-  }
+  words[0] = words[0][0].toUpperCase() + words[0].substr(1);
   return words.join(' ');
 }
 
@@ -247,8 +265,8 @@ function loadVideos(courses) {
   // loop through courses
   courses.forEach((video) => {
     // console.log(course);
-    $('#courseVideos').append(`
-      <div class="col-12 col-sm-4 col-md-3 my-3">
+    $('#courseVideos').append(
+      `<div class="col-12 col-sm-4 col-md-3 my-3">
 				<div>
 					<img class="card-img-top" src="${video.thumb_url}" alt="">
 					<img class="card-img-overlay play mx-auto mt-1 p-0 w-50" src="images/play.png">
@@ -271,6 +289,19 @@ function loadVideos(courses) {
 					</div>
 				</div>
 			</div>
-		`);
+			`
+    );
   });
+}
+
+// updates topic dropdown
+function topicSelect(topic) {
+  $('#topic').text(topic.textContent);
+  getCourses();
+}
+
+// updates sort dropdown
+function sortSelect(sort) {
+  $('#sort-by').text(sort.textContent);
+  getCourses();
 }

@@ -382,4 +382,21 @@ footer {
   background-color: #c271ff;
 }
 
+.search,
+#search {
+  background-color: #ce8dff;
+}
+
+.search {
+  border-radius: 0;
+}
+
+.form-control-lg,
+.form-control-lg::placeholder,
+.form-control-lg:focus {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
 /* #endregion */
