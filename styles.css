@@ -391,12 +391,20 @@ footer {
   border-radius: 0;
 }
 
+#search:focus {
+  outline: none;
+}
+
 .form-control-lg,
 .form-control-lg::placeholder,
 .form-control-lg:focus {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #fff;
   opacity: 1; /* Firefox */
+}
+
+.vid-count {
+  opacity: 0.5;
 }
 
 /* #endregion */

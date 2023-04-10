@@ -232,6 +232,7 @@ function getCourses() {
       const courses = response.courses;
       // remove the loader to show the videos
       $('#tutorialLoader').remove();
+      $('#courseVideos').append(`<span class="vid-count w-100 ml-3">${courses.length} videos</span>`);
       loadVideos(courses);
     },
     error: function (xhr) {
@@ -269,7 +270,7 @@ function loadVideos(courses) {
       `<div class="col-12 col-sm-4 col-md-3 my-3">
 				<div>
 					<img class="card-img-top" src="${video.thumb_url}" alt="">
-					<img class="card-img-overlay play mx-auto mt-1 p-0 w-50" src="images/play.png">
+					<img class="card-img-overlay play mx-auto mt-1 px-4 w-50" src="images/play.png">
 				</div>
 				<div class="card-body">
 					<h1 class="card-title lead font-weight-bold text-dark">${video.title}</h1>
